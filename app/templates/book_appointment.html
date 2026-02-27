@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Book Appointment</h2>
+<p><strong>Patient:</strong> {{ user.name }}</p>
+
+<div class="doctor-cards">
+{% for doctor in allDoctors %}
+  <div class="card">
+    <h3>{{ doctor.name }}</h3>
+    <p><b>Specialization:</b> {{ doctor.specialization }}</p>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <!-- SEND DOCTOR ID -->
+      <input type="hidden" name="doctor_id" value="{{ doctor.id }}">
+
+      <!-- PROBLEM -->
+      <textarea
+        name="problem"
+        placeholder="Describe your problem"
+        required>
+      </textarea>
+
+      <!-- APPOINTMENT DATE -->
+      <input
+        type="datetime-local"
+        name="appointment_date"
+        required
+      >
+
+      <button type="submit">Book Appointment</button>
+    </form>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

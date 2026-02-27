@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2> {{p.name}} appts </h2>
+
+
+{% for a in p_appts %}
+<h2>{{a.problem}}</h2>
+<h3>{{a.patient_id}}</h3>
+<h3>{{a.appointment_date}}</h3>
+<p>{{a.doctor.name}}</p>
+<p>{{a.patient.name}}</p>
+
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,3 @@
+class RegisterSer():
+    class Meta:
+        

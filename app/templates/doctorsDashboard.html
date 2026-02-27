@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+
+    <h2>Doctor Dashboard</h2>
+    <p>Welcome, <strong>{{ user.name }}</strong></p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🩺 Consultation</h3>
+            <span class="tag">Symptoms</span>
+            <span class="tag">Medical History</span>
+            <span class="tag">Patient Interaction</span>
+        </div>
+
+        <div class="card">
+            <h3>🔍 Examination</h3>
+            <span class="tag">BP Check</span>
+            <span class="tag">Temperature</span>
+            <span class="tag">Pulse</span>
+        </div>
+
+        <div class="card">
+            <h3>🧪 Tests</h3>
+            <span class="tag">Blood Test</span>
+            <span class="tag">X-Ray</span>
+            <span class="tag">ECG</span>
+        </div>
+
+        <div class="card">
+            <h3>📋 Diagnosis</h3>
+            <span class="tag">Disease Analysis</span>
+            <span class="tag">Report Review</span>
+        </div>
+
+        <div class="card">
+            <h3>💊 Treatment</h3>
+            <span class="tag">Medicines</span>
+            <span class="tag">Diet</span>
+            <span class="tag">Lifestyle</span>
+        </div>
+
+        <div class="card">
+            <h3>🔄 Follow Up</h3>
+            <span class="tag">Recovery</span>
+            <span class="tag">Next Visit</span>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

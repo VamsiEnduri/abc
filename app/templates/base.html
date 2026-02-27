@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard</title>
+  
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        body{
+            margin:0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:#f1f5f9;
+        }
+
+        /* NAVBAR */
+        .navbar{
+            background:#0f172a;
+            color:#fff;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:14px 32px;
+        }
+
+        .navbar h3{
+            margin:0;
+            font-size:22px;
+        }
+
+        .nav-links a{
+            color:#fff;
+            margin-left:22px;
+            text-decoration:none;
+            font-size:15px;
+            padding:7px 14px;
+            border-radius:6px;
+            transition:.3s;
+        }
+
+        .nav-links a:hover{
+            background:#1e293b;
+        }
+
+        .logout{
+            background:#ef4444;
+        }
+
+        /* DASHBOARD */
+        .dashboard{
+            padding:35px;
+        }
+
+        .dashboard h2{
+            margin-bottom:6px;
+            color:#0f172a;
+        }
+
+        .dashboard p{
+            color:#475569;
+            margin-top:0;
+        }
+
+        /* CARDS */
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:25px;
+            margin-top:30px;
+        }
+
+        .card{
+            background:#fff;
+            padding:22px;
+            border-radius:14px;
+            box-shadow:0 8px 18px rgba(0,0,0,.06);
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-6px);
+        }
+
+        .card h3{
+            margin-top:0;
+            font-size:18px;
+            color:#0f172a;
+        }
+
+        .card ul{
+            padding-left:18px;
+            margin:0;
+        }
+
+        .card ul li{
+            font-size:14px;
+            color:#334155;
+            margin-bottom:8px;
+        }
+
+        /* TAG STYLE */
+        .tag{
+            display:inline-block;
+            background:#e0f2fe;
+            color:#0369a1;
+            padding:6px 14px;
+            border-radius:50px;
+            font-size:13px;
+            margin:6px 6px 0 0;
+        }
+        .appts{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            background-color: lightsalmon;
+        }
+        .appts > div {
+            padding: 5px 20px;
+            background-color: wheat;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .booking-form{
+           margin: auto;
+    max-width:520px;
+    background:#fff;
+    padding:28px;
+    border-radius:14px;
+    box-shadow:0 10px 22px rgba(0,0,0,.08);
+}
+
+.booking-form label{
+    display:block;
+    margin-top:16px;
+    font-weight:600;
+    color:#0f172a;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border-radius:6px;
+    border:1px solid #cbd5e1;
+    font-size:14px;
+}
+
+.booking-form button{
+    margin-top:22px;
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.booking-form button:hover{
+    background:#1d4ed8;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h3>{{user.role}} Panel</h3>
+    
+
+    <div class="nav-links">
+        {% if user.role == "Doctor" %}
+
+        <a href="/doctorsDashboard/{{ user.id }}/">Home</a>
+        <a href="/doctorsDashboard/{{ user.id }}/appointments/">Appointments</a>
+        <a href="/doctorsDashboard/{{ user.id }}/profile/">Profile</a>
+
+
+        {% elif user.role == "Patient" %}
+
+        <a href="/patientsDashboard/{{ user.id }}/">Home</a>
+        <a href="/patientsDashboard/{{ user.id }}/appointments/">Appointments</a>
+        <a href="/patientsDashboard/{{ user.id }}/profile/">Profile</a>
+        
+
+        {% endif %}
+        <a href="/logout/">Logout</a>
+        
+
+    </div>
+</div>
+
+<!-- CHILD CONTENT COMES HERE -->
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
